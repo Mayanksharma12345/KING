@@ -95,8 +95,8 @@ AZURE_OPENAI_API_KEY=your-key
 \`\`\`bash
 docker-compose up
 # Frontend: http://localhost:3000
-# API: http://localhost:8000
-# Docs: http://localhost:8000/docs
+# API: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}
+# Docs: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/docs
 \`\`\`
 
 ## Scaling Up (When Ready)

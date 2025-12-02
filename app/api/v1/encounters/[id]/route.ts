@@ -5,7 +5,7 @@ export const GET = async (request: NextRequest, { params }: { params: Promise<{ 
     const { id: encounterId } = await params
     console.log(`[v0] Fetching encounter details for ${encounterId}`)
 
-    const response = await fetch(`http://localhost:8000/api/v1/encounters/${encounterId}`, {
+    const response = await fetch(`http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/v1/encounters/${encounterId}`, {
       method: "GET",
     })
 

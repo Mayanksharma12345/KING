@@ -109,9 +109,9 @@ docker-compose up
 \`\`\`
 
 The API will be available at:
-- **API**: http://localhost:8000
-- **Docs**: http://localhost:8000/docs
-- **Health**: http://localhost:8000/health
+- **API**: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}
+- **Docs**: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/docs
+- **Health**: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/health
 
 ## Azure Environment Setup
 
@@ -358,7 +358,7 @@ az ad sp create-for-rbac \
 ### Health Check
 
 \`\`\`bash
-curl http://localhost:8000/health
+curl http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/health
 \`\`\`
 
 Expected response:
@@ -372,7 +372,7 @@ Expected response:
 
 ### API Documentation
 
-Visit: http://localhost:8000/docs
+Visit: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/docs
 
 ### Test Encryption
 

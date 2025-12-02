@@ -7,7 +7,7 @@ export const POST = async (request: NextRequest) => {
     const formData = await request.formData()
 
     // Forward to Python backend
-    const response = await fetch("http://localhost:8000/api/v1/transcribe/", {
+    const response = await fetch("http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/v1/transcribe/", {
       method: "POST",
       body: formData,
     })

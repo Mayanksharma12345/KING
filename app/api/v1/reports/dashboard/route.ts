@@ -5,7 +5,7 @@ export const GET = async (request: NextRequest) => {
     console.log("[v0] Proxying dashboard report request to Python backend")
 
     // Forward to Python backend
-    const response = await fetch("http://localhost:8000/api/v1/reports/dashboard", {
+    const response = await fetch("http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/v1/reports/dashboard", {
       method: "GET",
     })
 

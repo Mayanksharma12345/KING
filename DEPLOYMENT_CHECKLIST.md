@@ -416,7 +416,7 @@ copy .env.example .env
 # Start backend (in development mode)
 python -m src.main
 
-# Backend will run on http://localhost:8000
+# Backend will run on http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}
 
 
 # 2. Frontend (open new terminal)
@@ -439,8 +439,8 @@ docker-compose up --build
 
 # Access:
 # - Frontend: http://localhost:3000
-# - Backend API: http://localhost:8000
-# - API Docs: http://localhost:8000/docs
+# - Backend API: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}
+# - API Docs: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/docs
 \`\`\`
 
 ---
@@ -477,7 +477,7 @@ docker-compose up --build
 
 **Development Questions:**
 - Check `/docs/SETUP.md`
-- API docs: `http://localhost:8000/docs`
+- API docs: `http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/docs`
 - GitHub issues
 
 **Azure Setup:**

@@ -260,8 +260,8 @@ docker-compose up
 
 # 5. Access
 # Frontend: http://localhost:3000
-# API: http://localhost:8000
-# Docs: http://localhost:8000/docs
+# API: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}
+# Docs: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/docs
 \`\`\`
 
 ---

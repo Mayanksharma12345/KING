@@ -50,7 +50,7 @@ EXPOSE 8000
 
 # Health check using curl instead of requests
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:8000/health || exit 1
+    CMD curl -f http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/health || exit 1
 
 # Run application
 CMD ["python", "-m", "src.main"]

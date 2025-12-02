@@ -5,7 +5,7 @@ export const GET = async (request: NextRequest) => {
     console.log("[v0] Fetching all encounters for data browser")
 
     // Forward to Python backend
-    const response = await fetch("http://localhost:8000/api/v1/encounters", {
+    const response = await fetch("http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/v1/encounters", {
       method: "GET",
     })
 

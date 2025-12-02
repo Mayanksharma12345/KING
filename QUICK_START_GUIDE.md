@@ -36,8 +36,8 @@ AZURE_OPENAI_API_KEY=your-api-key-here
 **Option A: Docker (Recommended)**
 \`\`\`bash
 docker-compose up
-# Backend: http://localhost:8000
-# Docs: http://localhost:8000/docs
+# Backend: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}
+# Docs: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/docs
 \`\`\`
 
 **Option B: Direct Python**
@@ -51,8 +51,8 @@ npm run dev
 
 ### Step 5: Access the App
 - Frontend: http://localhost:3000
-- API Docs: http://localhost:8000/docs
-- Health Check: http://localhost:8000/health
+- API Docs: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/docs
+- Health Check: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/health
 
 ## What Was Fixed
 
@@ -71,7 +71,7 @@ npm run dev
 
 \`\`\`bash
 # Create encounter
-curl -X POST http://localhost:8000/api/v1/encounters/ \
+curl -X POST http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/v1/encounters/ \
   -H "Content-Type: application/json" \
   -d '{
     "physician_id": "dr_smith",
@@ -81,10 +81,10 @@ curl -X POST http://localhost:8000/api/v1/encounters/ \
   }'
 
 # List encounters
-curl http://localhost:8000/api/v1/encounters/
+curl http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/v1/encounters/
 
 # Get dashboard metrics
-curl http://localhost:8000/api/v1/reports/dashboard
+curl http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/v1/reports/dashboard
 \`\`\`
 
 ## System Architecture
@@ -102,7 +102,7 @@ curl http://localhost:8000/api/v1/reports/dashboard
                    │
 ┌──────────────────▼──────────────────────────────────┐
 │              Backend (FastAPI)                      │
-│          http://localhost:8000                      │
+│          http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}                      │
 │   - Audio Transcription endpoint                    │
 │   - SOAP Note Generation endpoint                   │
 │   - Encounter management CRUD                       │
@@ -271,7 +271,7 @@ pip install -r requirements.txt
 5. Start recording your first encounter!
 
 For detailed documentation, see:
-- API docs: http://localhost:8000/docs
+- API docs: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/docs
 - Architecture: PRODUCTION_CHANGES.md
 - Security: docs/HIPAA_COMPLIANCE.md
 - Contributing: docs/CONTRIBUTING.md
