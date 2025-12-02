@@ -28,7 +28,7 @@ pip install -r requirements.txt
 python -m uvicorn src.main:app --reload --host 0.0.0.0 --port 8000
 \`\`\`
 
-Backend will run at: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}
+Backend will run at: http://localhost:8000
 
 ## Step 3: Start the Frontend
 

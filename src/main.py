@@ -119,7 +119,7 @@ async def add_security_headers(request: Request, call_next):
             f"style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com; "
             f"img-src 'self' https://fastapi.tiangolo.com https://cdn.jsdelivr.net https://unpkg.com data:; "
             f"font-src 'self' https://cdn.jsdelivr.net https://unpkg.com; "
-            f"connect-src 'self' http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"} https://cdn.jsdelivr.net https://unpkg.com; "
+            f"connect-src 'self' http://localhost:8000 https://cdn.jsdelivr.net https://unpkg.com; "
             f"frame-ancestors 'none'"
         )
     else:

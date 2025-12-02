@@ -33,10 +33,10 @@ python -m uvicorn src.main:app --reload --host 0.0.0.0 --port 8000
 
 \`\`\`bash
 # Health check
-curl http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/health
+curl http://localhost:8000/health
 
 # API docs
-open http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/docs
+open http://localhost:8000/docs
 \`\`\`
 
 ## Cost Estimates
@@ -94,7 +94,7 @@ python -m uvicorn src.main:app --reload --host 0.0.0.0 --port 8000
 ## Success Checklist
 
  - [ ] OpenAI API key added to `.env`
- - [ ] Backend running on http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}
+ - [ ] Backend running on http://localhost:8000
  - [ ] Frontend running on http://localhost:3000
  - [ ] Can record/upload audio
  - [ ] Transcription works (returns text)

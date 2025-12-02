@@ -67,7 +67,7 @@ def list_encounters(db: Session = Depends(get_db)):
 **Solution:** Changed health check to use `curl` (pre-installed in image)  
 \`\`\`dockerfile
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD curl -f http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/health || exit 1
+    CMD curl -f http://localhost:8000/health || exit 1
 \`\`\`
 
 ### 7. Missing Database Initialization Script
@@ -168,8 +168,8 @@ python scripts/init_db.py
 \`\`\`bash
 # Option 1: Direct
 python -m src.main
-# API: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}
-# Docs: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/docs
+# API: http://localhost:8000
+# Docs: http://localhost:8000/docs
 
 # Option 2: Docker Compose
 docker-compose up
@@ -349,13 +349,13 @@ The application includes three health check endpoints:
 
 \`\`\`bash
 # Liveness probe (is service running?)
-curl http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/v1/health/live
+curl http://localhost:8000/api/v1/health/live
 
 # Readiness probe (is service ready to serve?)
-curl http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/v1/health/ready
+curl http://localhost:8000/api/v1/health/ready
 
 # Full health check
-curl http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/health
+curl http://localhost:8000/health
 \`\`\`
 
 ### Logging
@@ -503,8 +503,8 @@ psql -h localhost -U postgres -d medicalscribe
 ## Support & Documentation
 
 ### API Documentation
-- Interactive docs: `http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/docs`
-- OpenAPI spec: `http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/openapi.json`
+- Interactive docs: `http://localhost:8000/docs`
+- OpenAPI spec: `http://localhost:8000/openapi.json`
 
 ### Code Documentation
 - Security: See `docs/HIPAA_COMPLIANCE.md`

@@ -5,7 +5,7 @@ export async function POST(request: NextRequest) {
     const { session_token } = await request.json()
 
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL || "http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}"}/api/v1/auth/logout?session_token=${session_token}`,
+      `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/v1/auth/logout?session_token=${session_token}`,
       {
         method: "POST",
       },

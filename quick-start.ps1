@@ -83,8 +83,8 @@ switch ($choice) {
         # Run backend
         Write-Host ""
         Write-Host "Starting backend server..." -ForegroundColor Green
-        Write-Host "Access API at: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}" -ForegroundColor Cyan
-        Write-Host "API Docs at: http://${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/docs" -ForegroundColor Cyan
+        Write-Host "Access API at: http://localhost:8000" -ForegroundColor Cyan
+        Write-Host "API Docs at: http://localhost:8000/docs" -ForegroundColor Cyan
         Write-Host ""
         python -m src.main
     }
